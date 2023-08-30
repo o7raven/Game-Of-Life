@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Render/Render.hpp"
 #include "Grid/Grid.hpp"
+#include "Simulation/Simulation.hpp"
 int main(int argc, char* argv[]){
     if(SDL_Init(SDL_INIT_VIDEO) > 0 )
         std::cerr << "Initialization error: " << SDL_GetError() << std::endl;
@@ -12,10 +13,11 @@ int main(int argc, char* argv[]){
 
     const int RECT_SIZE = 80;
     Grid grid(&window, SCREEN_SIZE, RECT_SIZE);
-
+    Simulation sim;
     bool isRunning=true;
     SDL_Event event;
     while(isRunning){
+        sim.Simulate(grid.getGridState());
         while(SDL_PollEvent(&event) != 0){
             if(event.type == SDL_QUIT)
                 isRunning = false;      
