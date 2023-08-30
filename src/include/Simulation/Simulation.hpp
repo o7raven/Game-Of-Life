@@ -1,14 +1,16 @@
 #pragma once
-#include "Log/Log.hpp"
 #include <vector>
-
+#include "Log/Log.hpp"
+#include "Grid/Grid.hpp"
 class Simulation
 {
 private:
-    std::vector<std::vector<int>>* matrix;
-    uint8_t getNeighbours(const int& col, const int& row);
+    Grid *grid;
+    std::vector<std::vector<int>> *matrix=0;
+    int getNeighbours(const int& col, const int& row);
+    bool outOfBounds(const int& col, const int& row);
 public:
-    Simulation();
+    Simulation(Grid* grid);
     ~Simulation();
-    std::vector<std::vector<int>> Simulate(std::vector<std::vector<int>>* matrix);
+    void Simulate();
 };
