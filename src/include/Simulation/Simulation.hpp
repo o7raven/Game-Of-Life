@@ -6,7 +6,7 @@ class Simulation
 {
 private:
     std::vector<std::vector<int>>* matrix;
-    uint8_t getNeighbours();
+    uint8_t getNeighbours(const int& col, const int& row);
 public:
     Simulation();
     ~Simulation();
