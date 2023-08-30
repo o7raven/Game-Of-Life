@@ -4,6 +4,8 @@
 #include "Render/Render.hpp"
 #include "Grid/Grid.hpp"
 #include "Simulation/Simulation.hpp"
+
+
 int main(int argc, char* argv[]){
     if(SDL_Init(SDL_INIT_VIDEO) > 0 )
         std::cerr << "Initialization error: " << SDL_GetError() << std::endl;
@@ -16,11 +18,22 @@ int main(int argc, char* argv[]){
     Simulation sim;
     bool isRunning=true;
     SDL_Event event;
+    bool spaceIsPressed=false;
     while(isRunning){
-        sim.Simulate(grid.getGridState());
         while(SDL_PollEvent(&event) != 0){
             if(event.type == SDL_QUIT)
                 isRunning = false;      
+            if(event.type == SDL_KEYDOWN){
+                if(event.key.keysym.sym == SDLK_SPACE && !spaceIsPressed){
+                    spaceIsPressed=true;
+                    std::cout << "Space\n";
+                }
+            }if(event.type == SDL_KEYUP){
+                if(event.key.keysym.sym == SDLK_SPACE){
+                    spaceIsPressed = false;
+                }
+            }
+                //sim.Simulate(grid.getGridState());
             grid.handleMouseHover(&event);
         }
         window.clearScreen();
@@ -32,3 +45,6 @@ int main(int argc, char* argv[]){
     return 0;        
 }
 
+void handleEvents(){
+
+}
