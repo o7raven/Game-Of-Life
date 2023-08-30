@@ -1,4 +1,4 @@
-OBJS = src/main.cpp src/include/Render/*.cpp src/include/Log/*.cpp src/include/Grid/*.cpp
+OBJS = src/main.cpp src/include/Render/*.cpp src/include/Log/*.cpp src/include/Grid/*.cpp src/include/Simulation/*.cpp
 NAME = app.exe	
 CC = g++	
 COMPILER_FLAGS=-w	
