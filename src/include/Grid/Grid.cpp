@@ -1,7 +1,7 @@
 #include "Grid.hpp"
 
-Grid::Grid(Render* _window, const int& SCR_SIZE, const int& RCT_SIZE)
-:window(*_window),SCREEN_SIZE(SCR_SIZE), RECT_SIZE(RCT_SIZE), matrixSize(SCREEN_SIZE/RECT_SIZE), 
+Grid::Grid(Render* _window, const int& SCR_W, const int& SCR_H, const int& RCT_SIZE)
+:window(*_window),SCR_W(SCR_W),SCR_H(SCR_H) , RECT_SIZE(RCT_SIZE), matrixSize(SCR_W/RECT_SIZE), 
 matrix(std::vector<std::vector<SDL_Rect>>(matrixSize, std::vector<SDL_Rect>(matrixSize))),
 matrixState(std::vector<std::vector<int>>(matrixSize, std::vector<int>(matrixSize)))
 {

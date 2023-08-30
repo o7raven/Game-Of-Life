@@ -3,7 +3,8 @@
 class Grid
 {
 private:
-    const int SCREEN_SIZE;
+    const int SCR_W;
+    const int SCR_H;
     const int RECT_SIZE;
     const int matrixSize;
     Render& window;
@@ -11,7 +12,7 @@ private:
     std::vector<std::vector<int>> matrixState;
     void createGrid();
 public:
-    Grid(Render* window ,const int& SCR_SIZE, const int& RCT_SIZE);
+    Grid(Render* window ,const int& SCR_W, const int& SCR_H,  const int& RCT_SIZE);
     ~Grid();
     void renderGrid();
     std::vector<std::vector<SDL_Rect>>* getGrid();
