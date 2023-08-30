@@ -24,7 +24,7 @@ void Simulation::Simulate(){
                     (*matrix)[i][j] = 0;
                 if(neighbourCounts[i][j] == 2 || neighbourCounts[i][j] == 3)
                     (*matrix)[i][j] = 1;
-                if(neighbourCounts[i][j] > 2 )
+                if(neighbourCounts[i][j] > 3 )
                     (*matrix)[i][j] = 0;
         }
         else if((*matrix)[i][j] == 0 && neighbourCounts[i][j] == 3)
