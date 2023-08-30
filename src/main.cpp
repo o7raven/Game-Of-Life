@@ -1,9 +1,9 @@
 #include <SDL2/SDL.h>
 #include <vector>
 #include <iostream>
-#include "Render/Render.hpp"
-#include "Grid/Grid.hpp"
-#include "Simulation/Simulation.hpp"
+#include "include/Render/Render.hpp"
+#include "include/Grid/Grid.hpp"
+#include "include/Simulation/Simulation.hpp"
 
 
 int main(int argc, char* argv[]){
@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
         std::cerr << "Initialization error: " << SDL_GetError() << std::endl;
 
     int SCREEN_HEIGHT = 720;
-    int SCREEN_WIDTH = 1080;
+    int SCREEN_WIDTH = 720;
     Render window("Game of life",SCREEN_WIDTH, SCREEN_HEIGHT);
 
     const int RECT_SIZE = 60;
