@@ -13,9 +13,9 @@ int main(int argc, char* argv[]){
     int SCREEN_SIZE = 720;
     Render window("Game of life",SCREEN_SIZE, SCREEN_SIZE);
 
-    const int RECT_SIZE = 80;
+    const int RECT_SIZE = 60;
     Grid grid(&window, SCREEN_SIZE, RECT_SIZE);
-    Simulation sim;
+    Simulation sim(&grid);
     bool isRunning=true;
     SDL_Event event;
     bool spaceIsPressed=false;
@@ -26,7 +26,7 @@ int main(int argc, char* argv[]){
             if(event.type == SDL_KEYDOWN){
                 if(event.key.keysym.sym == SDLK_SPACE && !spaceIsPressed){
                     spaceIsPressed=true;
-                    std::cout << "Space\n";
+                    sim.Simulate();
                 }
             }if(event.type == SDL_KEYUP){
                 if(event.key.keysym.sym == SDLK_SPACE){
