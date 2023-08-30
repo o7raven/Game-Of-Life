@@ -10,11 +10,12 @@ int main(int argc, char* argv[]){
     if(SDL_Init(SDL_INIT_VIDEO) > 0 )
         std::cerr << "Initialization error: " << SDL_GetError() << std::endl;
 
-    int SCREEN_SIZE = 720;
-    Render window("Game of life",SCREEN_SIZE, SCREEN_SIZE);
+    int SCREEN_HEIGHT = 720;
+    int SCREEN_WIDTH = 1080;
+    Render window("Game of life",SCREEN_WIDTH, SCREEN_HEIGHT);
 
     const int RECT_SIZE = 60;
-    Grid grid(&window, SCREEN_SIZE, RECT_SIZE);
+    Grid grid(&window, SCREEN_WIDTH, SCREEN_HEIGHT, RECT_SIZE);
     Simulation sim(&grid);
     bool isRunning=true;
     SDL_Event event;
