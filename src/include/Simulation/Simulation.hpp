@@ -6,7 +6,7 @@ class Simulation
 {
 private:
     Grid *grid;
-    std::vector<std::vector<int>> *matrix=0;
+    std::vector<std::vector<int>> *matrix=nullptr;
     int getNeighbours(const int& col, const int& row);
     bool outOfBounds(const int& col, const int& row);
 public:
