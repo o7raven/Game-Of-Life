@@ -4,9 +4,10 @@ This project is a remake of the classic "Game of Life," originally created by ma
 
 ## How to Play
 
-The Game of Life is not a traditional game with players and goals. Instead, it's a simulation of cellular automaton, where cells in a grid evolve over generations following certain rules. You can interact with the simulation by toggling cells on and off before starting the simulation. Once the simulation starts, the cells will evolve automatically.
+The Game of Life is not a traditional game with players and goals. Instead, it's a simulation of cellular automaton, where cells in a grid evolve over generations following certain rules. You can interact with the simulation by toggling cells on and off before or during the simulation.
 
-
+Click on cells you want to activate and then prace space for the next generation to appear.
+For more information on how the rules work, please click [here](https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
