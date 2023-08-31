@@ -7,6 +7,7 @@
 
 
 int main(int argc, char* argv[]){
+    SDL_Event event;
     if(SDL_Init(SDL_INIT_VIDEO) > 0 )
         std::cerr << "Initialization error: " << SDL_GetError() << std::endl;
 
@@ -16,11 +17,14 @@ int main(int argc, char* argv[]){
 
     const int RECT_SIZE = 60;
     Grid grid(&window, SCREEN_WIDTH, SCREEN_HEIGHT, RECT_SIZE);
+
+    bool spaceIsPressed=false;
     Simulation sim(&grid);
     bool isRunning=true;
-    SDL_Event event;
-    bool spaceIsPressed=false;
+    int fps=30;
+    int desiredDelta = 1000/fps;
     while(isRunning){
+        int startLoop = SDL_GetTicks();
         while(SDL_PollEvent(&event) != 0){
             if(event.type == SDL_QUIT)
                 isRunning = false;      
@@ -40,6 +44,9 @@ int main(int argc, char* argv[]){
         window.clearScreen();
         grid.renderGrid();
         window.render();
+        int delta = SDL_GetTicks() - startLoop;
+        if(delta<desiredDelta)
+            SDL_Delay(desiredDelta-delta);
     } 
 
     SDL_Quit();
