@@ -20,6 +20,7 @@ int main(int argc, char* argv[]){
 
     bool spaceIsPressed=false;
     Simulation sim(&grid);
+    
     bool isRunning=true;
     int fps=30;
     int desiredDelta = 1000/fps;
