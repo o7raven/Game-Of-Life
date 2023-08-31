@@ -7,25 +7,29 @@
 
 
 int main(int argc, char* argv[]){
+    struct userValues
+    {
+        int SCREEN_HEIGHT = 720;
+        int SCREEN_WIDTH = 720;
+        const int TARGET_FPS=5;
+        const int RECT_SIZE = 60;
+    } userVals;
+    
     SDL_Event event;
     if(SDL_Init(SDL_INIT_VIDEO) > 0 )
         std::cerr << "Initialization error: " << SDL_GetError() << std::endl;
 
-    int SCREEN_HEIGHT = 720;
-    int SCREEN_WIDTH = 720;
-    Render window("Game of life",SCREEN_WIDTH, SCREEN_HEIGHT);
+    Render window("Game of life",userVals.SCREEN_WIDTH, userVals.SCREEN_HEIGHT);
 
-    const int RECT_SIZE = 60;
-    Grid grid(&window, SCREEN_WIDTH, SCREEN_HEIGHT, RECT_SIZE);
+    Grid grid(&window, userVals.SCREEN_WIDTH, userVals.SCREEN_HEIGHT, userVals.RECT_SIZE);
 
     bool spaceIsPressed=false;
     Simulation sim(&grid);
     
     bool isRunning=true;
-    int fps=30;
-    int desiredDelta = 1000/fps;
+    int delta = 1000/userVals.TARGET_FPS;
     while(isRunning){
-        int startLoop = SDL_GetTicks();
+        int startLoopTime = SDL_GetTicks();
         while(SDL_PollEvent(&event) != 0){
             if(event.type == SDL_QUIT)
                 isRunning = false;      
@@ -45,9 +49,9 @@ int main(int argc, char* argv[]){
         window.clearScreen();
         grid.renderGrid();
         window.render();
-        int delta = SDL_GetTicks() - startLoop;
-        if(delta<desiredDelta)
-            SDL_Delay(desiredDelta-delta);
+        int loopTime = SDL_GetTicks() - startLoopTime;
+        if(loopTime<delta)
+            SDL_Delay(delta-loopTime);
     } 
 
     SDL_Quit();
