@@ -7,11 +7,11 @@
 
 
 int main(int argc, char* argv[]){
-    struct userValues
+    static struct userValues
     {
         int SCREEN_HEIGHT = 720;
         int SCREEN_WIDTH = 720;
-        const int TARGET_FPS=5;
+        const int TARGET_FPS=15;
         const int RECT_SIZE = 60;
     } userVals;
     
