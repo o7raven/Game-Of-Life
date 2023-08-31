@@ -1,1 +1,0 @@
-/sbin/c++  -O1 -march=native -rdynamic CMakeFiles/GameOfLife.dir/src/main.cpp.o CMakeFiles/GameOfLife.dir/src/include/Render/Render.cpp.o CMakeFiles/GameOfLife.dir/src/include/Log/Log.cpp.o CMakeFiles/GameOfLife.dir/src/include/Grid/Grid.cpp.o CMakeFiles/GameOfLife.dir/src/include/Simulation/Simulation.cpp.o -o GameOfLife  -lSDL2 

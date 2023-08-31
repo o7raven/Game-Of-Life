@@ -1,3 +1,0 @@
-/home/raven/Coding/Game-Of-Life/build/CMakeFiles/GameOfLife.dir
-/home/raven/Coding/Game-Of-Life/build/CMakeFiles/edit_cache.dir
-/home/raven/Coding/Game-Of-Life/build/CMakeFiles/rebuild_cache.dir
