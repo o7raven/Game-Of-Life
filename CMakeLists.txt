@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.0)
+project(GameOfLife)
+
+find_package(PkgConfig REQUIRED)
+#find_package(SDL2 REQUIRED)
+pkg_check_modules(SDL2 REQUIRED sdl2)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O1 -march=native")
+add_executable(${PROJECT_NAME} src/main.cpp src/include/Render/Render.cpp src/include/Log/Log.cpp src/include/Grid/Grid.cpp src/include/Simulation/Simulation.cpp)
+target_include_directories(GameOfLife PRIVATE src/include)
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PUBLIC ${SDL2_INCLUDE_DIRS})
+target_compile_options(${PROJECT_NAME} PUBLIC ${SDL2_CFLAGS_OTHER})

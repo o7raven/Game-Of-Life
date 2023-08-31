@@ -1,3 +1,3 @@
 @echo off
-make
-app.exe
+build/make
+build/GameOfLife
