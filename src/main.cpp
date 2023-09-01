@@ -6,13 +6,14 @@
 #include "include/Simulation/Simulation.hpp"
 
 
+
 int main(int argc, char* argv[]){
     static struct userValues
     {
-        int SCREEN_HEIGHT = 720;
-        int SCREEN_WIDTH = 720;
-        const int TARGET_FPS=15;
-        const int RECT_SIZE = 60;
+        int SCREEN_HEIGHT = 880;
+        int SCREEN_WIDTH = 920;
+        const int RECT_SIZE = 40;
+        const int TARGET_FPS = 15;
     } userVals;
     
     SDL_Event event;
@@ -22,7 +23,6 @@ int main(int argc, char* argv[]){
     Render window("Game of life",userVals.SCREEN_WIDTH, userVals.SCREEN_HEIGHT);
 
     Grid grid(&window, userVals.SCREEN_WIDTH, userVals.SCREEN_HEIGHT, userVals.RECT_SIZE);
-
     bool spaceIsPressed=false;
     Simulation sim(&grid);
     
