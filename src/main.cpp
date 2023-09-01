@@ -7,15 +7,16 @@
 
 
 
+struct userValues
+{
+    int SCREEN_HEIGHT = 880;
+    int SCREEN_WIDTH = 920;
+    static constexpr int RECT_SIZE = 40;
+    static const int TARGET_FPS = 15;
+};
+constexpr int userValues::RECT_SIZE;
 int main(int argc, char* argv[]){
-    static struct userValues
-    {
-        int SCREEN_HEIGHT = 880;
-        int SCREEN_WIDTH = 920;
-        const int RECT_SIZE = 40;
-        const int TARGET_FPS = 15;
-    } userVals;
-    
+    static userValues userVals = {};
     SDL_Event event;
     if(SDL_Init(SDL_INIT_VIDEO) > 0 )
         std::cerr << "Initialization error: " << SDL_GetError() << std::endl;
